@@ -1,11 +1,11 @@
 Class {
-	#name : 'BaselineOfMushrooms',
-	#superclass : 'BaselineOf',
-	#category : 'BaselineOfMushrooms'
+	#name : #BaselineOfNature,
+	#superclass : #BaselineOf,
+	#category : #BaselineOfNature
 }
 
-{ #category : 'baseline' }
-BaselineOfMushrooms >> baseline: spec [
+{ #category : #baseline }
+BaselineOfNature >> baseline: spec [
 	<baseline>
 
 	spec for: #'common' do: [
@@ -18,18 +18,18 @@ BaselineOfMushrooms >> baseline: spec [
 				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ].
-		spec package: 'Mushrooms' with: [
+		spec package: 'Nature' with: [
 				spec requires: #('Magritte' 'Mocketry' 'PharoEnhancements' 'SimplePersistence'). ]. ].
 ]
 
-{ #category : 'accessing' }
-BaselineOfMushrooms >> customProjectAttributes [
+{ #category : #accessing }
+BaselineOfNature >> customProjectAttributes [
 	^ self isGTImage
 			ifFalse: [ #(notGToolkit) ]
 			ifTrue: [ #(GToolkit) ]
 ]
 
-{ #category : 'testing' }
-BaselineOfMushrooms >> isGTImage [
+{ #category : #testing }
+BaselineOfNature >> isGTImage [
 	^ RPackageOrganizer default packageNames anySatisfy: [ :pn | pn beginsWith: 'GToolkit-' ]
 ]
